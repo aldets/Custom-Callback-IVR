@@ -32,7 +32,7 @@ class CustomizerIVR(ICustomize):
         }
 
 
-    def activeCallBack(self, params):
+    def data_callback(self, params):
         """
         :Comment: Checks if Caller has active CallBack request or not
         :param: caller: {ANUMBER}
