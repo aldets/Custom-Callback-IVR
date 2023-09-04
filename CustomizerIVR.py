@@ -57,9 +57,9 @@ class CustomizerIVR(ICustomize):
         
         # Make API call
         req_cmi = requests.get(f"{api_url}{resource_cb}?customerNumber={caller}",
-                            headers=headers,
-                            auth=(api_uid,
-                                    api_pwd))
+                               headers=headers,
+                               auth=(api_uid,
+                                     api_pwd))
         
         res_cmi = req_cmi.json()
 
