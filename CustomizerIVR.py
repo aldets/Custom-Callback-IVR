@@ -78,7 +78,7 @@ class CustomizerIVR(ICustomize):
         :param: api_uid: username that has access to callbacks resource
         :param: api_pwd: password of the username that has access to callbacks resource
         :param: queue_number_cb: Callback queue number
-        :return: If Callback exists, returns "lastResult. If not, then returns False
+        :return: Returns the created Callback ID
 
         """
 
