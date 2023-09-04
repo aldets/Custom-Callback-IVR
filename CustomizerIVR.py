@@ -27,9 +27,6 @@ class CustomizerIVR(ICustomize):
     def __init__(self, AppConf):
         # Call the base class constructor
         ICustomize.__init__(self, AppConf)
-        self.headers = {
-            "Content-Type": "application/json"
-        }
 
 
     def data_callback(self, params):
@@ -54,9 +51,13 @@ class CustomizerIVR(ICustomize):
         if not caller:
             return 'ERROR'
         
+        headers = {
+            "Content-Type": "application/json"
+        }
+        
         # Make API call
         req_cmi = requests.get(f"{api_url}{resource_cb}?customerNumber={caller}",
-                            headers=self.headers,
+                            headers=headers,
                             auth=(api_uid,
                                     api_pwd))
         
@@ -94,6 +95,10 @@ class CustomizerIVR(ICustomize):
         if not caller:
             return 'ERROR'
         
+        headers = {
+            "Content-Type": "application/json"
+        }
+        
         # Assemble JSON for API
         callback_json = {
             "customerNumber": f"{caller}",
@@ -104,7 +109,7 @@ class CustomizerIVR(ICustomize):
         callback_json = json.dumps(callback_json)
 
         req_cmi = requests.post(f"{api_url}{resource_cb}?customerNumber={caller}",
-                                headers=self.headers,
+                                headers=headers,
                                 data=callback_json,
                                 auth=(api_uid,
                                       api_pwd))
