@@ -108,7 +108,7 @@ class CustomizerIVR(ICustomize):
 
         callback_json = json.dumps(callback_json)
 
-        req_cmi = requests.post(f"{api_url}{resource_cb}?customerNumber={caller}",
+        req_cmi = requests.post(f"{api_url}{resource_cb}",
                                 headers=headers,
                                 data=callback_json,
                                 auth=(api_uid,
