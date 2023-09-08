@@ -90,7 +90,6 @@ class CustomizerIVR(ICustomize):
         api_uid = params.get("api_uid", None)
         api_pwd = params.get("api_pwd", None)
         queue_number_cb = params.get("queue_number_cb", None)
-        ivr_language = params.get("ivr_language", None)
 
         # No number was given. Probably hidden number
         if not caller:
@@ -103,8 +102,7 @@ class CustomizerIVR(ICustomize):
         # Assemble JSON for API
         callback_json = {
             "customerNumber": f"{caller}",
-            "callbackQueueNumber": f"{queue_number_cb}",
-            "notes": f"KLIENT RÄÄGIB {ivr_language} KEELT !"
+            "callbackQueueNumber": f"{queue_number_cb}"
         }
 
         callback_json = json.dumps(callback_json)
